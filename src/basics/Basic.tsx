@@ -1,10 +1,17 @@
 import React from "react";
 
 function Basic() {
+  /*Type - Any & Unknown  */
+  let school: any;
+  let personName: unknown; //recommended
+
+  /*Type -  */
+
   /* Type - String */
   //syntax - let varName: string
   let name = "anthony"; //JavaScript
   let job: string = "developer"; //TypeScript
+  console.log(job);
 
   /* Type - Number */
   let octa = 8; //JavaScript
@@ -31,7 +38,7 @@ function Basic() {
     console.log(`Hello, ${name}!`);
   }
   greet("Anthony");
-  console.log({greet})
+  console.log({ greet });
 
   //B. Function Expressions - You can also declare a function as an expression. This declares a function named greet as a constant variable.
   const greeting = (name: string): void => {
@@ -39,10 +46,11 @@ function Basic() {
   };
 
   //Function Types - You can specify the type of a function using the "=>" syntax. This declares a type alias GreetFunction for a function that takes a string parameter and returns void.
-  type GreetFunction = (name: string) => void; //it can have void, string, number etc etc
+  type GreetFunction = (name: string) => void; //it can have void, never, string, number etc etc
   //OR
   let Greet: Function;
 
+  //Note - type "void" returns undefined, while type "never" doesnt return anything, so it is recommmended to use the "never" type instead of the "void" type.
 
   //Function Parameters - You can specify the types of function parameters using the ":" syntax. This declares a function greet with two parameters: name of type string and age of type number.
   function greetParameter(name: string, age: number): void {
@@ -104,14 +112,16 @@ function Basic() {
   //Declaring Objects - We have 3 different ways of declaring an Object in TypeScript. You can declare an object in TypeScript using the {} syntax:
   //using Object Literal:
   let person: { name: string; age: number } = { name: "John", age: 30 };
-  //OR, using the interface keyword:
+  //OR, using the interface keyword(recommended):
   interface Person {
     name: string;
     age: number;
   }
   let persons: Person = { name: "John", age: 30 };
   let errorPerson: Person = { name: "John", age: "Thirty" }; // error
-  //OR, using type keyword:
+  console.log({ persons });
+
+  //OR, using the type keyword:
   type Details = {
     name: string;
     age: number;
@@ -198,6 +208,91 @@ function Basic() {
   let { john, life } = descructure; // name = 'John', age = 30
   console.log({ john });
   console.log({ life });
+
+  /* Type Extensions for Interface & Type Aliases */
+  //Interface Extension - You can extend an interface using the "extends" keyword. In this example, the Dog interface extends the Animal interface, inheriting its properties and adding a new property breed.
+  interface Animal {
+    name: string;
+  }
+  interface Cat extends Animal {
+    breed: string;
+  }
+
+  let musu: Cat = {
+    name: "jack",
+    breed: "ox"
+  }
+  console.log({musu})
+
+  //Procedure - a.You define an Animal interface with a name property of type string. b.You define a Cat interface that extends Animal, adding a breed property of type string. c.You declare a variable musu of type Cat and assign it an object literal with name and breed properties. d.You log the musu object to the console.
+  
+
+  //Type Alias Extension -You can extend a type alias using the "&" operator. In this example, the Dog type alias extends the Animal type alias, combining their properties.
+  type AnimalFamily = {
+    name: string;
+  };
+
+  type Tiger = AnimalFamily & {
+    breed: string;
+  };
+
+  //Extending Multiple Interfaces/Type Aliases - You can extend multiple interfaces or type aliases using the extends keyword or & operator:
+  interface Kingdom {
+    name: string;
+  }
+  interface Mammal {
+    fur: boolean;
+  }
+  interface Dog extends Kingdom, Mammal {
+    breed: string;
+  }
+
+  // OR
+  type Kingdom = {
+    name: string;
+  };
+  type Mammal = {
+    fur: boolean;
+  };
+  type Dog = Kingdom &
+    Mammal & {
+      breed: string;
+    };
+
+  //Using Extended Interfaces/Type Aliases - You can use the extended interfaces or type aliases as you would with any other interface or type alias:
+
+  const dog: Dog = {
+    name: "Fido",
+    breed: "Golden Retriever",
+    fur: true,
+  };
+  console.log({dog})
+
+  //Interface extending a type - In this example, the Cat interface extends the Animal type.
+  type Animal = {
+    name: string;
+  }interface Cat extends Animal {
+    breed: string;
+  }
+
+  //Type extending an interface - In this example, the Cat type extends the Animal interface using the intersection operator &.
+  interface Animal {
+    name: string;
+  }
+
+  type Cat = Animal & {
+    breed: string;
+  }
+
+
+
+
+
+
+
+
+
+
 
   return <div>Basics</div>;
 }
