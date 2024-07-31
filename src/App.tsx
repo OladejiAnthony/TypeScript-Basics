@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Basic from './basics/Basic';
+//import Basic from './basics/Basic';
 
 function App() {
   return (
@@ -8,7 +8,8 @@ function App() {
       <div>
         Header
       </div>
-      <Basic  />
+      {/* <Basic  /> */}
+      
     </div>
   );
 }

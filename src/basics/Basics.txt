@@ -1,0 +1,7 @@
+#Types in TypeScript:
+1.  
+    let name = "anthony
+2.
+3.
+4.
+5.
