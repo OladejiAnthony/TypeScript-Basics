@@ -76,10 +76,14 @@ function Basic() {
 
   //Types of Array - TypeScript supports just two types of arrays:
   //1. Homogeneous Arrays: All elements have the same type
-  let num: number[] = [1, 2, 3];
+  let bool: Array<boolean> = [true, false]; //Using Array<T> syntax:
+  let numb: Array<number> = [1,2,3,4];
+  let num: number[] = [1, 2, 3]; //Using array type literal syntax:
   let str: string[] = ["a", "b", "c"];
   //2. Heterogeneous Arrays: Elements can have different types by using Union Types(|) sysmbol inbetween.
+  let mixed: Array<number | string> = [1, "two", 3, "four"];
   let mixed: (number | string)[] = [1, "a", 2, "b"];
+
   console.log({ mixed });
 
   //Array Methods - TypeScript supports the same array methods as JavaScript, such as:- push(), pop(), shift(), unshift(), splice(), slice(), indexOf(), includes(), forEach(), map(), filter(), reduce() etc
