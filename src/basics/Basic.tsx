@@ -5,7 +5,7 @@ function Basic() {
   let school: any;
   let personName: unknown; //recommended
 
-  /*Type -  */
+  /*Types in TypeScript  */
 
   /* Type - String */
   //syntax - let varName: string
@@ -70,8 +70,7 @@ function Basic() {
 
   /* Type - Array */
   //Declaring Array - You can declare an array in TypeScript using the Array<T> type, where T is the type of the elements. Below are the two syntax structures for defining an array in TypeScript:
-  let numbers1: Array<number> = [1, 2, 3];
-  //Or, using
+  let numbers1: Array<number> = [1, 2, 3];   //Or, using   
   let numbers2: number[] = [1, 2, 3];
 
   //Types of Array - TypeScript supports just two types of arrays:
@@ -81,7 +80,7 @@ function Basic() {
   let num: number[] = [1, 2, 3]; //Using array type literal syntax:
   let str: string[] = ["a", "b", "c"];
   //2. Heterogeneous Arrays: Elements can have different types by using Union Types(|) sysmbol inbetween.
-  let mixed: Array<number | string> = [1, "two", 3, "four"];
+  let mixes: Array<number | string> = [1, "two", 3, "four"];
   let mixed: (number | string)[] = [1, "a", 2, "b"];
 
   console.log({ mixed });
@@ -91,6 +90,8 @@ function Basic() {
   let numbers = [1, 2, 3]; // inferred type: number[]
   //Read-only Arrays - You can declare a read-only array using the "readonly" keyword WHICH prevents the array from being modified:
   let readonlyNumbers: readonly number[] = [1, 2, 3];
+  let readonlyNumberss: ReadonlyArray<number> = [1, 2, 3]; //we are using the `ReadonlyArray` type.
+
   //Tuple Type -In TypeScript, a "tuple" is a type that represents "an array with a fixed number of elements", where each element can be of a different type. A Tuple type is defined using square brackets [] and comma(,) to separate the types. For example:
   //The example below defines a tuple type MyTuple with three elements: a.The first element is a string, b. The second element is a number, c.The third element is a boolean.
   let MyTuple: [string, number, boolean] = ["a", 1, true];
@@ -107,16 +108,16 @@ function Basic() {
   /* Type - Objects */
   let role: Object;
   //This means that role can be assigned any value that is an object, such as:
-  /*- An object literal: role = { name: 'John', age: 30 };
+      /*- An object literal: role = { name: 'John', age: 30 };
         - An array: role = [1, 2, 3];
         - A function: role = function() { console.log('hello'); };
         - A new object: role = new Date();
       */
 
   //Declaring Objects - We have 3 different ways of declaring an Object in TypeScript. You can declare an object in TypeScript using the {} syntax:
-  //using Object Literal:
+  //1. using Object Literal:
   let person: { name: string; age: number } = { name: "John", age: 30 };
-  //OR, using the interface keyword(recommended):
+  //2. using the interface keyword(recommended):
   interface Person {
     name: string;
     age: number;
@@ -125,7 +126,7 @@ function Basic() {
   let errorPerson: Person = { name: "John", age: "Thirty" }; // error
   console.log({ persons });
 
-  //OR, using the type keyword:
+  //3. using the type keyword:
   type Details = {
     name: string;
     age: number;
