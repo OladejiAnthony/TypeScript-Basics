@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanstack/react-router": "^1.81.1",
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
     "cra-template-typescript": "1.2.0",

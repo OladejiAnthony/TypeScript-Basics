@@ -1,0 +1,29 @@
+
+Let's walk through building a simple React TypeScript blog web app using TanStack Router. This app will include a HomePage, AboutPage, BlogPage, and BlogDetailsPage. Here's the step-by-step process to set up your project and use TanStack Router for navigation.
+
+#Setting up the Project:
+npx create-react-app my-blog-app --template typescript
+cd my-blog-app
+npm install @tanstack/react-router
+
+#Project File Structure:
+src/
+  components/
+    Navbar.tsx
+  pages/
+    HomePage.tsx
+    AboutPage.tsx
+    BlogPage.tsx
+    BlogDetailsPage.tsx
+  routes/
+    routes.tsx
+  App.tsx
+
+#Explanation of TanStack Router Usage
+Creating Routes: We define our routes using createRouteConfig and createChild. This allows us to build hierarchical route structures easily.
+Navigating with Links: TanStack Router’s Link component helps in navigating between routes without page refreshes.
+Using Params: The useParams hook extracts route parameters like id in the BlogDetailsPage.
+
+#Running the App:
+npm start
+    Note - This will start your React TypeScript blog app with routing powered by TanStack Router. You can explore navigation and see how routing works in your app. Feel free to add more features, such as handling not-found routes, nested routing, and more complex layouts, to further explore TanStack Router's capabilities!
